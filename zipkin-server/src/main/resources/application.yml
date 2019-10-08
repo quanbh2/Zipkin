@@ -1,0 +1,20 @@
+server:
+  port: 9494
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+
+---
+spring:
+  profiles: local
+  zipkin:
+    base-url: http://localhost:9494/
+    sender:
+      type: web

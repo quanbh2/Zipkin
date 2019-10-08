@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: zipkin-client
+  sleuth:
+    sampler:
+      probability: 1.0
+
+---
+spring:
+  profiles: local
+  zipkin:
+    base-url: http://localhost:9494/
+    sender:
+      type: web
+
+server:
+  port: 8081
+---
+spring:
+  profiles: docker
+  zipkin:
+    base-url: http://localhost:9494/
+    sender:
+      type: web
